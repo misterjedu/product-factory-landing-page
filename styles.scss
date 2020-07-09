@@ -1,0 +1,183 @@
+// Color Variables
+$blackBackground: #111111;
+$whiteBackGround: #ffffff;
+$offWhiteColor: #fafafa;
+$greyHeaderColor: #f8f8f8;
+$accentColor: #f36732;
+$lightBlack: #707070;
+
+// Screen sizes
+$mediumScreen: 768px;
+$largeScreen: 992px;
+$extraLargeScreen: 1200px;
+
+// Mixins
+@mixin mQ($args) {
+  @media screen and (min-width: $args) {
+    @content;
+  }
+}
+
+// Resets
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+
+  body {
+    font-family: "Product Sans", sans-serif;
+  }
+
+  button {
+    border-style: none;
+    cursor: pointer;
+  }
+}
+
+// Default Container
+.container {
+  padding: 0 20px;
+}
+
+@include mQ($mediumScreen) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@include mQ($largeScreen) {
+  .container {
+    padding: 0 60px;
+  }
+}
+
+@include mQ($extraLargeScreen) {
+  .container {
+    padding: 0 100px;
+  }
+}
+
+// Section one
+.section-one {
+  background-color: $blackBackground;
+  padding: 40px 0;
+
+  //   Header menu
+  header {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    .header-logo {
+      flex-grow: 1;
+    }
+    .header-links {
+      display: none;
+    }
+  }
+
+  //   Media Query for Header Menu
+  @include mQ(1046px) {
+    .header-links {
+      display: flex !important;
+      flex-grow: 7;
+      align-items: center;
+
+      ul {
+        display: flex;
+        flex-grow: 3;
+        padding: 0 20px;
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .register-button {
+        flex-grow: 2;
+        padding-left: 20px;
+
+        button {
+          padding: 15px 30px;
+          border-radius: 50px;
+          background-color: lighten($blackBackground, 10);
+          color: white;
+        }
+      }
+    }
+  }
+
+  //   Section one inner (Register)
+  .start-register-card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+    padding: 40px;
+    justify-content: space-between;
+    border-radius: 20px 20px 0 0;
+    align-items: center;
+
+    // Registeration detail card
+    .inner-register-detail-card {
+      flex: 1 1 0px;
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        position: relative;
+        &::before {
+          content: "UI/UX";
+          position: absolute;
+          font-size: 6rem;
+          color: $lightBlack;
+          top: 20px;
+          opacity: 0.1;
+          z-index: 0;
+        }
+      }
+      h3 {
+        font-weight: 500;
+        margin-bottom: 30px;
+        color: $lightBlack;
+      }
+      p {
+        line-height: 40px;
+        font-size: 1.2rem;
+        @include mQ($mediumScreen) {
+          width: 70%;
+        }
+      }
+
+      button {
+        padding: 20px 100px;
+        margin-top: 50px;
+        background-color: $accentColor;
+        color: white;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+    }
+
+    .inner-register-image-card {
+      display: none;
+    }
+
+    //   Media Query for Start registration card
+
+    @include mQ($mediumScreen) {
+      flex-direction: row;
+      padding: 50px 100px;
+      .inner-register-image-card {
+        display: block;
+        flex: 1 1 0px;
+        text-align: right;
+        img {
+          max-width: 500px;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
