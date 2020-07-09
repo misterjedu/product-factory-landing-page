@@ -11,6 +11,9 @@ $mediumScreen: 768px;
 $largeScreen: 992px;
 $extraLargeScreen: 1200px;
 
+// Dimension Varaibles
+$sectionPadding: 40px;
+
 // Mixins
 @mixin mQ($args) {
   @media screen and (min-width: $args) {
@@ -32,6 +35,11 @@ $extraLargeScreen: 1200px;
   button {
     border-style: none;
     cursor: pointer;
+  }
+  p {
+    line-height: 40px;
+    font-size: 1.1rem;
+    font-weight: 200;
   }
 }
 
@@ -61,7 +69,10 @@ $extraLargeScreen: 1200px;
 // Section one
 .section-one {
   background-color: $blackBackground;
-  padding: 40px 0;
+  padding: $sectionPadding 0;
+  // @include mQ($mediumScreen) {
+  //   padding-bottom: 0;
+  // }
 
   //   Header menu
   header {
@@ -115,7 +126,7 @@ $extraLargeScreen: 1200px;
     margin: 40px 0;
     padding: 40px;
     justify-content: space-between;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     align-items: center;
 
     // Registeration detail card
@@ -166,8 +177,10 @@ $extraLargeScreen: 1200px;
     //   Media Query for Start registration card
 
     @include mQ($mediumScreen) {
+      z-index: 2;
       flex-direction: row;
       padding: 50px 100px;
+
       .inner-register-image-card {
         display: block;
         flex: 1 1 0px;
@@ -181,3 +194,180 @@ $extraLargeScreen: 1200px;
     }
   }
 }
+
+// Section Two
+
+.section-two {
+  background-color: $offWhiteColor;
+  padding: 40px 0;
+  @include mQ($mediumScreen) {
+    padding: 300px 0 40px 0;
+  }
+  .container {
+    background-color: $offWhiteColor;
+    .section-two-about-us {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      @include mQ($largeScreen) {
+        padding: 60px 100px;
+      }
+      // About us heading
+      .about-us-heading {
+        @include mQ($largeScreen) {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-bottom: 60px;
+          margin-top: -120px;
+        }
+        .about-us-heading-image {
+          display: none;
+
+          @include mQ($largeScreen) {
+            display: block;
+            img {
+              max-width: 300px;
+              width: 100%;
+              height: auto;
+            }
+          }
+          @include mQ(1252px) {
+            img {
+              max-width: 500px;
+            }
+          }
+        }
+        p {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          margin: 30px 0;
+          position: relative;
+          @include mQ($largeScreen) {
+            margin: 0;
+            padding: 0;
+            justify-self: center;
+          }
+          &::before {
+            content: "About";
+            position: absolute;
+            font-size: 6rem;
+            color: $lightBlack;
+            top: -5px;
+            right: 60px;
+            opacity: 0.1;
+            z-index: 0;
+            @include mQ($mediumScreen) {
+              right: 200px;
+            }
+            @include mQ($largeScreen) {
+              top: -10px;
+              right: -60px;
+            }
+          }
+        }
+        .about-us-social-icons {
+          display: none;
+          @include mQ($largeScreen) {
+            display: flex;
+            flex-direction: column;
+            img {
+              margin: 10px 0;
+            }
+          }
+        }
+      }
+
+      // About us body(Text)
+      .about-us-body {
+      }
+    }
+  }
+
+  // Section Two Course Experience
+  .section-two-course-experience {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 15px;
+    @include mQ($largeScreen) {
+      padding: 60px 100px;
+      margin: 100px 0;
+    }
+
+    .course-exprerience-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      p {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 40px;
+        position: relative;
+        &::before {
+          content: "Exprerience";
+          position: absolute;
+          font-size: 4rem;
+          color: $lightBlack;
+          top: -5px;
+          right: -60px;
+          opacity: 0.1;
+          z-index: 0;
+        }
+      }
+
+      .experience-stages {
+        width: 100%;
+        ul {
+          li {
+            border: solid black 1px;
+            padding: 20px 0;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 5px;
+          }
+          #before-attendance {
+            background-color: $blackBackground;
+            color: white;
+          }
+          @include mQ($mediumScreen) {
+            display: flex;
+            padding: 0 30px;
+            li {
+              padding: 17px 0;
+              flex-grow: 1;
+            }
+            #after-attendance {
+              border-radius: 15px 0 0 15px;
+            }
+            #before-attendance {
+              border-radius: 0 15px 15px 0;
+            }
+          }
+        }
+      }
+    }
+
+    // Experience Body
+    .course-experience-body {
+      img {
+        display: none;
+      }
+      @include mQ($mediumScreen) {
+        display: flex;
+        align-items: center;
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Section Threee

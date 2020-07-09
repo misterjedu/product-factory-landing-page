@@ -14,6 +14,12 @@
   cursor: pointer;
 }
 
+* p {
+  line-height: 40px;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
 .container {
   padding: 0 20px;
 }
@@ -117,7 +123,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -178,6 +184,7 @@
 
 @media screen and (min-width: 768px) {
   .section-one .start-register-card {
+    z-index: 2;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -195,6 +202,246 @@
     max-width: 500px;
     width: 100%;
     height: auto;
+  }
+}
+
+.section-two {
+  background-color: #fafafa;
+  padding: 40px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .section-two {
+    padding: 300px 0 40px 0;
+  }
+}
+
+.section-two .container {
+  background-color: #fafafa;
+}
+
+.section-two .container .section-two-about-us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us {
+    padding: 60px 100px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us .about-us-heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin-bottom: 60px;
+    margin-top: -120px;
+  }
+}
+
+.section-two .container .section-two-about-us .about-us-heading .about-us-heading-image {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us .about-us-heading .about-us-heading-image {
+    display: block;
+  }
+  .section-two .container .section-two-about-us .about-us-heading .about-us-heading-image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1252px) {
+  .section-two .container .section-two-about-us .about-us-heading .about-us-heading-image img {
+    max-width: 500px;
+  }
+}
+
+.section-two .container .section-two-about-us .about-us-heading p {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 30px 0;
+  position: relative;
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us .about-us-heading p {
+    margin: 0;
+    padding: 0;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+}
+
+.section-two .container .section-two-about-us .about-us-heading p::before {
+  content: "About";
+  position: absolute;
+  font-size: 6rem;
+  color: #707070;
+  top: -5px;
+  right: 60px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .section-two .container .section-two-about-us .about-us-heading p::before {
+    right: 200px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us .about-us-heading p::before {
+    top: -10px;
+    right: -60px;
+  }
+}
+
+.section-two .container .section-two-about-us .about-us-heading .about-us-social-icons {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .container .section-two-about-us .about-us-heading .about-us-social-icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .section-two .container .section-two-about-us .about-us-heading .about-us-social-icons img {
+    margin: 10px 0;
+  }
+}
+
+.section-two .section-two-course-experience {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  padding: 40px;
+  margin: 40px 0;
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .section-two .section-two-course-experience {
+    padding: 60px 100px;
+    margin: 100px 0;
+  }
+}
+
+.section-two .section-two-course-experience .course-exprerience-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-two .section-two-course-experience .course-exprerience-title p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-two .section-two-course-experience .course-exprerience-title p::before {
+  content: "Exprerience";
+  position: absolute;
+  font-size: 4rem;
+  color: #707070;
+  top: -5px;
+  right: -60px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.section-two .section-two-course-experience .course-exprerience-title .experience-stages {
+  width: 100%;
+}
+
+.section-two .section-two-course-experience .course-exprerience-title .experience-stages ul li {
+  border: solid black 1px;
+  padding: 20px 0;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.section-two .section-two-course-experience .course-exprerience-title .experience-stages ul #before-attendance {
+  background-color: #111111;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .section-two .section-two-course-experience .course-exprerience-title .experience-stages ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 30px;
+  }
+  .section-two .section-two-course-experience .course-exprerience-title .experience-stages ul li {
+    padding: 17px 0;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .section-two .section-two-course-experience .course-exprerience-title .experience-stages ul #after-attendance {
+    border-radius: 15px 0 0 15px;
+  }
+  .section-two .section-two-course-experience .course-exprerience-title .experience-stages ul #before-attendance {
+    border-radius: 0 15px 15px 0;
+  }
+}
+
+.section-two .section-two-course-experience .course-experience-body img {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .section-two .section-two-course-experience .course-experience-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .section-two .section-two-course-experience .course-experience-body img {
+    display: block;
   }
 }
 /*# sourceMappingURL=styles.css.map */
