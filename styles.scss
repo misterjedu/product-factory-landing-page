@@ -41,8 +41,20 @@ $sectionPadding: 40px;
   padding: 40px;
   border-radius: 15px;
   @include mQ($largeScreen) {
-    padding: 60px 100px;
+    padding: 60px 60px;
   }
+}
+
+@mixin beforeTileOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+@mixin boxShadow {
+  border-radius: 30px;
+  box-shadow: 24px 34px 33px -40px rgba(171, 161, 171, 1);
 }
 
 // Resets
@@ -94,9 +106,7 @@ $sectionPadding: 40px;
 .section-one {
   background-color: $blackBackground;
   padding: $sectionPadding 0;
-  // @include mQ($mediumScreen) {
-  //   padding-bottom: 0;
-  // }
+  position: relative;
 
   //   Header menu
   header {
@@ -144,13 +154,14 @@ $sectionPadding: 40px;
 
   //   Section one inner (Register)
   .start-register-card {
+    @include boxShadow;
     background-color: white;
     display: flex;
     flex-direction: column;
-    margin: 40px 0;
+    margin-top: 40px;
+    margin-bottom: -200px;
     padding: 40px;
     justify-content: space-between;
-    border-radius: 20px;
     align-items: center;
 
     // Registeration detail card
@@ -219,13 +230,13 @@ $sectionPadding: 40px;
   }
 }
 
-// Section Two
+// Section Two Abou US
 
 .section-two {
   background-color: $offWhiteColor;
   padding: 40px 0;
   @include mQ($mediumScreen) {
-    padding: 300px 0 40px 0;
+    padding: 300px 0 1px 0;
   }
   .container {
     background-color: $offWhiteColor;
@@ -234,6 +245,7 @@ $sectionPadding: 40px;
       flex-direction: column;
       background-color: white;
       @include segmentContainer;
+      @include boxShadow;
       // About us heading
       .about-us-heading {
         @include mQ($largeScreen) {
@@ -300,97 +312,111 @@ $sectionPadding: 40px;
           }
         }
       }
+    }
+  }
+}
 
-      // About us body(Text)
-      .about-us-body {
+// Section Two (Course Experience)
+.course-experience {
+  position: relative;
+  background-color: white;
+}
+
+.section-two-course-experience {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 40px;
+  margin: 40px 0;
+  border-radius: 15px;
+  @include boxShadow;
+  @include mQ($largeScreen) {
+    margin-top: 40px;
+    margin-bottom: -100px;
+    padding: 40px;
+  }
+
+  .course-experience-title {
+    @include beforeTileOverlay;
+    p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "Experience";
+        font-size: 4rem;
+        color: $lightBlack;
+        top: -5px;
+        right: -60px;
+        opacity: 0.1;
+        z-index: 0;
       }
     }
   }
 
-  // Section Two Course Experience
-  .section-two-course-experience {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 40px;
-    margin: 40px 0;
-    border-radius: 15px;
-    @include mQ($largeScreen) {
-      padding: 60px 100px;
-      margin: 100px 0;
-    }
-
-    .course-exprerience-title {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 40px;
-      p {
-        &::before {
-          content: "Experience";
-        }
-        @include sectionTitle;
+  .experience-stages {
+    width: 100%;
+    ul {
+      li {
+        border: solid black 1px;
+        padding: 20px 0;
+        margin: 10px 0;
+        text-align: center;
+        border-radius: 5px;
       }
-    }
-
-    .experience-stages {
-      width: 100%;
-      ul {
+      #before-attendance {
+        background-color: $blackBackground;
+        color: white;
+      }
+      @include mQ($mediumScreen) {
+        display: flex;
+        padding: 0 30px;
         li {
-          border: solid black 1px;
-          padding: 20px 0;
-          margin: 10px 0;
-          text-align: center;
-          border-radius: 5px;
+          padding: 17px 0;
+          flex-grow: 1;
+        }
+        #after-attendance {
+          border-radius: 15px 0 0 15px;
         }
         #before-attendance {
-          background-color: $blackBackground;
-          color: white;
+          border-radius: 0 15px 15px 0;
         }
-        @include mQ($mediumScreen) {
-          display: flex;
-          padding: 0 30px;
-          li {
-            padding: 17px 0;
-            flex-grow: 1;
-          }
-          #after-attendance {
-            border-radius: 15px 0 0 15px;
-          }
-          #before-attendance {
-            border-radius: 0 15px 15px 0;
-          }
-        }
-      }
-    }
-  }
-
-  // Experience Body
-  .course-experience-body {
-    img {
-      display: none;
-    }
-    @include mQ($mediumScreen) {
-      display: flex;
-      align-items: center;
-      img {
-        display: block;
       }
     }
   }
 }
 
+// Experience Body
+.course-experience-body {
+  img {
+    display: none;
+  }
+  @include mQ($mediumScreen) {
+    display: flex;
+    align-items: center;
+    img {
+      display: block;
+    }
+  }
+}
+
+// **************************************************************
+
 // Section Threee (Sessions)
 .section-three {
+  background-color: rgb(75, 177, 177);
+
   padding: 40px 20px;
   @include mQ($mediumScreen) {
     padding: 40px;
   }
   .container {
     .session-title {
-      position: relative;
-      margin-bottom: 100px;
-      h3 {
+      @include beforeTileOverlay;
+      margin-top: 150px;
+      p {
         text-align: center;
         &::before {
           content: "Sessions";
@@ -467,6 +493,7 @@ $sectionPadding: 40px;
   box-shadow: 24px 34px 33px -40px rgba(171, 161, 171, 1);
   @include segmentContainer;
   &-title {
+    @include beforeTileOverlay;
     p {
       @include sectionTitle;
       &::before {
@@ -478,9 +505,17 @@ $sectionPadding: 40px;
 
   &-body {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
     position: relative;
+    @include mQ($mediumScreen) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @include mQ($largeScreen) {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
   }
 }
 
@@ -542,19 +577,22 @@ $sectionPadding: 40px;
 
 .faq-section {
   background-color: $offWhiteColor;
+  margin-bottom: 50px;
 }
 
 .faq {
   padding: 40px 0;
   border-radius: 15px;
   @include mQ($largeScreen) {
-    padding: 60px 0;
+    padding: 60px 0 450px 0;
   }
   &-title {
+    @include beforeTileOverlay;
     p {
       @include sectionTitle;
       &::before {
         content: "FAQ";
+        left: -30px;
       }
       text-align: center;
     }
@@ -577,18 +615,19 @@ $sectionPadding: 40px;
 
 // Section four (Course fee )
 
-.course-fee-section {
-  background-color: $offWhiteColor;
-}
-
 .course-fee {
   background-color: white;
   @include segmentContainer;
+  @include boxShadow;
+  margin-top: -400px;
+  margin-bottom: 150px;
   &-title {
+    @include beforeTileOverlay;
     p {
       @include sectionTitle;
       &::before {
-        content: "Course fee";
+        content: "Fee";
+        right: 10px;
       }
       text-align: center;
       margin-bottom: 100px;
@@ -597,9 +636,13 @@ $sectionPadding: 40px;
 }
 
 .course-fee-body {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  grid-column-gap: 40px;
+  &-left {
+    margin-bottom: 70px;
+    @include mQ($mediumScreen) {
+      margin-bottom: 0;
+    }
+  }
+
   &-left-title {
     font-weight: bold;
     font-size: 1.1rem;
@@ -614,6 +657,12 @@ $sectionPadding: 40px;
         margin-right: 15px;
       }
     }
+  }
+
+  @include mQ($mediumScreen) {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-column-gap: 40px;
   }
 }
 
@@ -670,11 +719,14 @@ hr {
 .contact-form {
   padding: 40px 0;
   border-radius: 15px;
+  @include mQ($mediumScreen) {
+    display: flex;
+    justify-content: space-between;
+  }
   @include mQ($largeScreen) {
     padding: 60px 0;
   }
-  display: flex;
-  justify-content: space-between;
+
   align-items: center;
   &-left {
     h3 {
@@ -707,17 +759,23 @@ hr {
         margin-top: 5px;
         margin-right: 20px;
       }
+
       p {
+        font-size: 0.8rem;
         margin: 0;
       }
     }
   }
 
   &-right {
-    max-width: 400px;
-    img {
-      width: 100%;
-      height: auto;
+    display: none;
+    @include mQ($mediumScreen) {
+      display: block;
+      max-width: 400px;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
@@ -735,10 +793,14 @@ hr {
     padding: 60px 0;
   }
   &-title {
+    @include beforeTileOverlay;
+
     h3 {
       @include sectionTitle;
       &::before {
         content: "Projects";
+        // right: 50px;
+        top: -30px;
       }
       text-align: center;
     }
@@ -746,10 +808,13 @@ hr {
 }
 
 .project-body {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 30px;
-  align-items: center;
+  @include mQ($largeScreen) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    align-items: center;
+  }
+
   &-left {
     &-title {
       @include sectionTitle;
@@ -835,6 +900,7 @@ hr {
   }
 
   &-title {
+    @include beforeTileOverlay;
     p {
       @include sectionTitle;
       &::before {
@@ -879,16 +945,23 @@ hr {
       color: white;
     }
     &-days-left {
-      font-size: 1.2rem;
       font-weight: bold;
       margin-right: 30px;
+      @include mQ($mediumScreen) {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
     }
     button {
-      padding: 10px 70px;
+      padding: 7px 40px;
       border-radius: 15px;
       background-color: $accentColor;
       color: white;
-      font-size: 1.1rem;
+
+      @include mQ($mediumScreen) {
+        font-size: 1.1rem;
+        padding: 10px 70px;
+      }
     }
   }
 }
@@ -899,9 +972,18 @@ footer {
 }
 
 .footer {
+  & > * {
+    margin: 20px;
+  }
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  @include mQ($mediumScreen) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
   &-social {
     img {
       width: 25px;
