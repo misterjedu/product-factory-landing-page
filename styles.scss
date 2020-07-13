@@ -119,6 +119,62 @@ $sectionPadding: 40px;
     .header-links {
       display: none;
     }
+    .menu-icon {
+      padding: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+      div {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+
+        @include mQ(1046px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Mobile Menu
+  .mobile-menu {
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+    ul {
+      &:hover {
+        cursor: pointer;
+      }
+      li {
+        padding: 10px;
+        background-color: lighten($color: #000000, $amount: 20);
+        margin: 2px;
+        text-align: center;
+        &:hover {
+          cursor: pointer;
+          background-color: black;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    button {
+      padding: 15px;
+      margin: 2px;
+      border-radius: 20px;
+      width: 100%;
+      font-size: 1.3rem;
+    }
+
+    button:hover {
+      background-color: $accentColor;
+      color: white;
+    }
+
+    @include mQ(1064px) {
+      display: none;
+    }
   }
 
   //   Media Query for Header Menu
@@ -159,7 +215,10 @@ $sectionPadding: 40px;
     display: flex;
     flex-direction: column;
     margin-top: 40px;
-    margin-bottom: -200px;
+    margin-bottom: -100px;
+    @include mQ($mediumScreen) {
+      margin-bottom: -200px;
+    }
     padding: 40px;
     justify-content: space-between;
     align-items: center;
@@ -332,7 +391,6 @@ $sectionPadding: 40px;
   @include boxShadow;
   @include mQ($largeScreen) {
     margin-top: 40px;
-    margin-bottom: -100px;
     padding: 40px;
   }
 
@@ -376,6 +434,7 @@ $sectionPadding: 40px;
         li {
           padding: 17px 0;
           flex-grow: 1;
+          border-radius: 0;
         }
         #after-attendance {
           border-radius: 15px 0 0 15px;
@@ -406,8 +465,6 @@ $sectionPadding: 40px;
 
 // Section Threee (Sessions)
 .section-three {
-  background-color: rgb(75, 177, 177);
-
   padding: 40px 20px;
   @include mQ($mediumScreen) {
     padding: 40px;
@@ -619,7 +676,10 @@ $sectionPadding: 40px;
   background-color: white;
   @include segmentContainer;
   @include boxShadow;
-  margin-top: -400px;
+  margin-top: -50px;
+  @include mQ($largeScreen) {
+    margin-top: -400px;
+  }
   margin-bottom: 150px;
   &-title {
     @include beforeTileOverlay;

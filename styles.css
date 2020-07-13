@@ -67,6 +67,71 @@
   display: none;
 }
 
+.section-one header .menu-icon {
+  padding: 10px;
+}
+
+.section-one header .menu-icon:hover {
+  cursor: pointer;
+}
+
+.section-one header .menu-icon div {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+}
+
+@media screen and (min-width: 1046px) {
+  .section-one header .menu-icon div {
+    display: none;
+  }
+}
+
+.section-one .mobile-menu {
+  color: white;
+}
+
+.section-one .mobile-menu:hover {
+  cursor: pointer;
+}
+
+.section-one .mobile-menu ul:hover {
+  cursor: pointer;
+}
+
+.section-one .mobile-menu ul li {
+  padding: 10px;
+  background-color: #333333;
+  margin: 2px;
+  text-align: center;
+}
+
+.section-one .mobile-menu ul li:hover {
+  cursor: pointer;
+  background-color: black;
+  font-size: 1.1rem;
+}
+
+.section-one .mobile-menu button {
+  padding: 15px;
+  margin: 2px;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.section-one .mobile-menu button:hover {
+  background-color: #f36732;
+  color: white;
+}
+
+@media screen and (min-width: 1064px) {
+  .section-one .mobile-menu {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1046px) {
   .section-one .header-links {
     display: -webkit-box !important;
@@ -123,7 +188,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 40px;
-  margin-bottom: -200px;
+  margin-bottom: -100px;
   padding: 40px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -131,6 +196,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .section-one .start-register-card {
+    margin-bottom: -200px;
+  }
 }
 
 .section-one .start-register-card .inner-register-detail-card {
@@ -368,7 +439,6 @@
 @media screen and (min-width: 992px) {
   .section-two-course-experience {
     margin-top: 40px;
-    margin-bottom: -100px;
     padding: 40px;
   }
 }
@@ -434,6 +504,7 @@
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+    border-radius: 0;
   }
   .section-two-course-experience .experience-stages ul #after-attendance {
     border-radius: 15px 0 0 15px;
@@ -462,7 +533,6 @@
 }
 
 .section-three {
-  background-color: #4bb1b1;
   padding: 40px 20px;
 }
 
@@ -821,13 +891,19 @@
   border-radius: 30px;
   -webkit-box-shadow: 24px 34px 33px -40px #aba1ab;
           box-shadow: 24px 34px 33px -40px #aba1ab;
-  margin-top: -400px;
+  margin-top: -50px;
   margin-bottom: 150px;
 }
 
 @media screen and (min-width: 992px) {
   .course-fee {
     padding: 60px 60px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .course-fee {
+    margin-top: -400px;
   }
 }
 
